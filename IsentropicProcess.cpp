@@ -4,7 +4,9 @@
 #include "States.h"
 #include "Cylinders.h"
 
-//Isentropic relations as per the powerpoint slides (lecture 8)
+//Isentropic relations as per the powerpoint slides (lecture 8) using the same old relations
+
+Cylinder c1;
 
 double isenCompressionT(double T1, double Index)
 {

@@ -19,7 +19,4 @@ public:
 
 	~Cylinder(){}
 };
-
-Cylinder c1;
-
 #endif

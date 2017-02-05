@@ -6,6 +6,7 @@
 #include <conio.h>
 #include "States.h"
 #include "IsoProcesses.h"
+#include "IsoIntegral.h"
 
 using namespace std;
 
@@ -45,9 +46,15 @@ int main()
 	cout << "Wout: " << wout << " kj/kg" << endl;
 	cout << "Qout: " << qout << " kj/kg" << endl;
 
-	cout << "\nTotal Power: " << qin + qout - win - wout << endl;
+	cout << "\nTotal Power: " << qin + qout - win - wout << endl; //Checking to make sure all power in and out cancels
 	cout << "Net cycle work: " << wout + win << " kj/kg" << endl;
 	cout << "Thermal Efficieny: " << (wout + win) / qin << " kj/kg" << endl;
+
+	cout << "\nComparing the isentropic relations analytically," << endl;
+	cout << "The difference between isentropic relations of states 1 and 2: " << analyticalSoln(s1.Pr, s2.Pr, Index) << endl;
+	cout << "The difference between isentropic relations of states 3 and 4: " << analyticalSoln(s4.Pr, s3.Pr, Index) << endl;
+
+
 
 	_getch();
 
