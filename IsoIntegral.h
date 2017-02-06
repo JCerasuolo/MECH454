@@ -1,6 +1,7 @@
 #ifndef ISOINTEGRAL_H
 #define ISOINTEGRAL_H
 
-double analyticalSoln(double P1or4, double P2or3, double Index);
+double analyticalComp(double P1, double Index);
+double analyticalExp(double P3, double Index);
 
 #endif

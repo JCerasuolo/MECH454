@@ -10,14 +10,14 @@ using namespace std;
 
 Cylinder c2;
 
-double analyticalSoln(double P1or4, double P2or3, double Index)
+double analyticalComp(double P1, double Index)
 {
-	double first = P1or4*pow(c2.Ve, Index); //One of the expanded states
-	double second = P2or3*pow(c2.Vc, Index); //The corresponding compressed state
-	return first - second;
+	double P2 = P1*pow(c2.Ve, Index)/(pow(c2.Vc,Index)); //From expanded State 1 to compressed state 2
+	return P2;
 }
 
-double integralSoln()
+double analyticalExp(double P3, double Index)
 {
-
+	double P4 = P3*pow(c2.Vc, Index) / (pow(c2.Ve, Index)); //From compressed state 3 to expanded state 4
+	return P4;
 }
