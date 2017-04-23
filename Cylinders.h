@@ -23,9 +23,7 @@ public:
 		rodLength = 0.1315;
 		stroke = 0.079;
 		AF = 13;
-		
-		std::cout << "Enter the engine speed in RPM: ";
-		std::cin >> N;
+		N = 1000;
 	}
 
 	~Cylinder(){}

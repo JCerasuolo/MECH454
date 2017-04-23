@@ -20,8 +20,8 @@ int main()
 	double qin = 2000; // Heat Addition(kJ/kg)
 	double Cv = 1.045; //Cv of fuel
 	double Cp = 0.7325; //Cp of fuel
-	double Index = 1.234; //Adiabatic Index IS NUMERICALLY WRITTEN IN THE POLYTROPICODE FILE MAKE SURE TO CHANGE THAT TOO IF YOU CHANGE THIS
-
+	//double Index = 1.234; //Adiabatic Index IS NUMERICALLY WRITTEN IN THE POLYTROPICODE FILE MAKE SURE TO CHANGE THAT TOO IF YOU CHANGE THIS
+	double Index = Cv / Cp;
 	Cylinder cylinder;
 
 	State s1(300, 100000);
@@ -92,7 +92,7 @@ int main()
 	cout << "Thermal Efficieny: " << (wout + win) / qin << " kj/kg" << endl;
 
 	//TEST CODE TO SEE IF POLYTROPIC INTEGRATION PLAYS NICELY WITH REST OF CODE
-
+	/*
 	State s9(300, 100000);
 
 	State s10;
@@ -116,7 +116,7 @@ int main()
 	win = Cv*(s9.Tmp - s10.Tmp); //Compression work in (kJ/kg)
 	wout = Cv*(s11.Tmp - s12.Tmp); //Expansion work out (kJ/kg)
 	qout = Cv*(s9.Tmp - s12.Tmp); //Heat Removal (kJ/kg)
-
+	
 	cout << "\nWin: " << win << " kj/kg" << endl;
 	cout << "Qin: " << qin << " kj/kg" << endl;
 	cout << "Wout: " << wout << " kj/kg" << endl;
@@ -125,7 +125,7 @@ int main()
 	cout << "\nTotal Power: " << qin + qout - win - wout << endl; //Checking to make sure all power in and out cancels
 	cout << "Net cycle work: " << wout + win << " kj/kg" << endl;
 	cout << "Thermal Efficieny: " << (wout + win) / qin << " kj/kg" << endl;
-
+	*/
 	State s13(300, 100000);
 
 	State s14;
@@ -137,10 +137,10 @@ int main()
 	State s16;
 	s16.Pr = integration(s15.Pr, 1.2478, cylinder.Ve, 0.1);
 
-	cout << s13.Pr << endl;
-	cout << s14.Pr << endl;
-	cout << s15.Pr << endl;
-	cout << s16.Pr << endl;
+	cout << "/nP initial: " << s13.Pr << endl;
+	cout << "P at combustion start: " << s14.Pr << endl;
+	cout << "P at combustion end: " << s15.Pr << endl;
+	cout << "P at expansion: " <<s16.Pr << endl;
 
 	_getch();
 
