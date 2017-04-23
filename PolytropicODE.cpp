@@ -11,7 +11,7 @@ using namespace boost::numeric::odeint;
 
 	void rhs(const double p, double &dpdv, const double v) // 1.35 is the index in this scenario REMEMBER TO CHANGE THIS IF YOU CHANGE THE INDEX
 	{
-		dpdv = -1.35*p / v;
+		dpdv = -1.234*p / v;
 	}
 
 	void write_cout(const double &p, const double v)

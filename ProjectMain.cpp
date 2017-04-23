@@ -9,15 +9,18 @@
 #include "IsoIntegral.h"
 #include "PolytropicODE.h"
 #include "Cylinders.h"
+#include "HeatTransfer.h"
 
 using namespace std;
+
+//ADD SIMULATION OF CRANK ANGLE TURNING
 
 int main()
 {
 	double qin = 2000; // Heat Addition(kJ/kg)
 	double Cv = 1.00; //Cv of air
 	double Cp = 0.718; //Cp of air
-	double Index = Cv / Cp; //Adiabatic Index IS NUMERICALLY WRITTEN IN THE POLYTROPICODE FILE MAKE SURE TO CHANGE THAT TOO IF YOU CHANGE THIS
+	double Index = 1.234; //Adiabatic Index IS NUMERICALLY WRITTEN IN THE POLYTROPICODE FILE MAKE SURE TO CHANGE THAT TOO IF YOU CHANGE THIS
 
 	Cylinder cylinder;
 
@@ -122,6 +125,11 @@ int main()
 	cout << "\nTotal Power: " << qin + qout - win - wout << endl; //Checking to make sure all power in and out cancels
 	cout << "Net cycle work: " << wout + win << " kj/kg" << endl;
 	cout << "Thermal Efficieny: " << (wout + win) / qin << " kj/kg" << endl;
+
+	State s13(300, 100000);
+
+	State s14;
+	s14.Pr = firstLawIntegration(s13.Pr, -20, 40);
 
 	_getch();
 

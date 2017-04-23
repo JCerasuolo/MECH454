@@ -8,10 +8,11 @@ public:
 	double Vd; //Total Displacement volume (L)
 	double Ve; //Total Compressed Volume (L)
 	double Vc; //Total Expanded Volume(L)
-	double rodLength; //Connecting Rod Length (m)
-	double bore; // Bore (m)
-	double stroke; // Stroke length (m)
+	double rodLength; //Connecting Rod Length (m) l
+	double bore; // Bore (m) b
+	double stroke; // Stroke length (m) L
 	int AF; // Air Fuel Ratio
+	int N; //Engine speed (RPM)
 
 	Cylinder() // Values are per engine (4 Cylinders in this case)
 	{
@@ -22,9 +23,13 @@ public:
 		rodLength = 0.1315;
 		stroke = 0.079;
 		AF = 13;
-
+		
+		std::cout << "Enter the engine speed in RPM: ";
+		std::cin >> N;
 	}
 
 	~Cylinder(){}
 };
+
+
 #endif
