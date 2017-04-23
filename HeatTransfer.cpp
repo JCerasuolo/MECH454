@@ -8,6 +8,7 @@
 #include <boost/numeric/odeint.hpp>
 #include <boost/array.hpp>
 #include <conio.h>
+#include <fstream>
 
 #define _CRT_SECURE_NO_WARNINGS
 
@@ -86,17 +87,22 @@ void rhs2(const double p, double &dpdtheta, const double theta) // 1.35 is the i
 
 }
 
+ofstream fout2;
+
 void write_cout2(const double &p, const double theta)
 {
-	//cout << theta << '\t' << p << endl;
+	fout2 << theta << "," << p << endl;
 }
 
 // state_type = double
 typedef runge_kutta_dopri5< double > stepper_type;
 
+
 double firstLawIntegration(double p, double theta_s, double theta_d) //original step size of 0.1
 {
 	// double p = 100000.0;
+	fout2.open("data.csv", std::fstream::in | std::fstream::out | std::fstream::app);
 	integrate_adaptive(make_controlled(1E-12, 1E-12, stepper_type()), rhs2, p, theta_s, theta_d, 0.1, write_cout2);
+	fout2.close();
 	return p;
 }

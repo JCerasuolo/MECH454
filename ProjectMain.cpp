@@ -18,8 +18,8 @@ using namespace std;
 int main()
 {
 	double qin = 2000; // Heat Addition(kJ/kg)
-	double Cv = 1.00; //Cv of air
-	double Cp = 0.718; //Cp of air
+	double Cv = 1.045; //Cv of fuel
+	double Cp = 0.7325; //Cp of fuel
 	double Index = 1.234; //Adiabatic Index IS NUMERICALLY WRITTEN IN THE POLYTROPICODE FILE MAKE SURE TO CHANGE THAT TOO IF YOU CHANGE THIS
 
 	Cylinder cylinder;
