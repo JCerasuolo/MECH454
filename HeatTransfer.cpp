@@ -88,7 +88,7 @@ void rhs2(const double p, double &dpdtheta, const double theta) // 1.35 is the i
 
 void write_cout2(const double &p, const double theta)
 {
-	cout << theta << '\t' << p << endl;
+	//cout << theta << '\t' << p << endl;
 }
 
 // state_type = double

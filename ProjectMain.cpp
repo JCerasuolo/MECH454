@@ -129,7 +129,18 @@ int main()
 	State s13(300, 100000);
 
 	State s14;
-	s14.Pr = firstLawIntegration(s13.Pr, -20, 40);
+	s14.Pr = integration(s13.Pr, cylinder.Ve, 0.8124, -0.1);
+
+	State s15;
+	s15.Pr = firstLawIntegration(s14.Pr, -20, 40);
+
+	State s16;
+	s16.Pr = integration(s15.Pr, 1.2478, cylinder.Ve, 0.1);
+
+	cout << s13.Pr << endl;
+	cout << s14.Pr << endl;
+	cout << s15.Pr << endl;
+	cout << s16.Pr << endl;
 
 	_getch();
 
