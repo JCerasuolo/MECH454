@@ -18,6 +18,8 @@ using namespace std;
 int main()
 {
 	double qin = 2000; // Heat Addition(kJ/kg)
+	//double qin = 176.54; // = 43700 kJ/kg * 0.00369 kg
+	//double qin = 43700; // Heating value of gasoline (kJ/kg)
 	double Cv = 1.045; //Cv of fuel
 	double Cp = 0.7325; //Cp of fuel
 	//double Index = 1.234; //Adiabatic Index IS NUMERICALLY WRITTEN IN THE POLYTROPICODE FILE MAKE SURE TO CHANGE THAT TOO IF YOU CHANGE THIS
@@ -132,12 +134,12 @@ int main()
 	s14.Pr = integration(s13.Pr, cylinder.Ve, 0.8124, -0.1);
 
 	State s15;
-	s15.Pr = firstLawIntegration(s14.Pr, -20, 40);
+	s15.Pr = firstLawIntegration(s14.Pr, -20, 20);
 
 	State s16;
-	s16.Pr = integration(s15.Pr, 1.2478, cylinder.Ve, 0.1);
+	s16.Pr = integration(s15.Pr, 0.8124, cylinder.Ve, 0.1);
 
-	cout << "/nP initial: " << s13.Pr << endl;
+	cout << "\nP initial: " << s13.Pr << endl;
 	cout << "P at combustion start: " << s14.Pr << endl;
 	cout << "P at combustion end: " << s15.Pr << endl;
 	cout << "P at expansion: " <<s16.Pr << endl;

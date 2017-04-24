@@ -59,7 +59,7 @@ double xb(double theta, double theta_s, double theta_d, double a, double n)
 
 double Wiebe(double theta)
 {
-	double Q_hv = 473000000;//*0.00369; //Heating value of fuel (J/kg) * mass of fuel in the engine
+	double Q_hv = 47300;// *0.00369; //Heating value of fuel (J/kg) * mass of fuel in the engine
 	double n = 3; // Form Factor
 	double a = 5; // Efficiency Factor
 	double theta_s = -20; // Start of heat release (in degrees) with TDC as 0
